@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Attendance</title>
+  <style>
+    /* Reset some default margins and paddings */
+    body, h1, table, form, a, button {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f7fc;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+      font-weight: 700;
+      font-size: 2.2rem;
+      text-align: center;
+    }
+
+    form {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #2980b9;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 6px 6px 0 0;
+      user-select: none;
+    }
+
+    tr {
+      background: #ecf0f1;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    tr:hover {
+      background: #d0e6f7;
+    }
+
+    td:first-child, th:first-child {
+      border-radius: 6px 0 0 6px;
+    }
+    td:last-child, th:last-child {
+      border-radius: 0 6px 6px 0;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      accent-color: #2980b9;
+      transition: transform 0.2s ease;
+    }
+
+    input[type="checkbox"]:hover {
+      transform: scale(1.1);
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 20px;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      max-width: 200px;
+      display: block;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1c5980;
+    }
+
+    a {
+      margin-top: 15px;
+      color: #2980b9;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #1c5980;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      table, th, td {
+        font-size: 0.9rem;
+      }
+      button {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Mark Attendance</h1>
+  <form method="post" action="/mark_attendance">
+    <table>
+      <thead>
+        <tr>
+          <th>Roll</th>
+          <th>Name</th>
+          <th>Present</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+        <tr>
+          <td>{{ student.roll }}</td>
+          <td>{{ student.name }}</td>
+          <td>
+            <input type="checkbox" name="present" value="{{ student.roll }}" checked />
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <button type="submit">Submit Attendance</button>
+  </form>
+
+  <a href="/">Go home</a>
+</body>
+</html>

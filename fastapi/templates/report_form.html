@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Generate Attendance Report</title>
+  <style>
+    body {
+      background: #f9fafb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 25px;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    form {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      align-self: flex-start;
+      margin-bottom: 5px;
+      color: #34495e;
+    }
+
+    input[type="month"] {
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1.5px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    input[type="month"]:focus {
+      outline: none;
+      border-color: #2980b9;
+      box-shadow: 0 0 5px #2980b9;
+    }
+
+    button {
+      background-color: #2980b9;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1c5980;
+    }
+
+    a {
+      margin-top: 25px;
+      font-weight: 600;
+      color: #2980b9;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #1c5980;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h2>Generate Monthly Attendance Report</h2>
+  <form method="post">
+    <label for="month">Select Month (YYYY-MM):</label>
+    <input type="month" id="month" name="month" required />
+    <button type="submit">Generate CSV</button>
+  </form>
+  <a href="/">Go Home</a>
+</body>
+</html>
